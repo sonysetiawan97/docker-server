@@ -1,0 +1,39 @@
+version: "3"
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx:alpine
+    ports:
+      - 8081:80
+    volumes:
+      - "./var:/var/www/"
+      - "./nginx/conf.d:/etc/nginx/conf.d"
+    restart: always
+    depends_on:
+      - fpm74
+      - fpm73
+    networks:
+      - local-net
+
+  fpm74:
+    image: php:fpm_74
+    volumes:
+      - "./var:/var/www/"
+    expose:
+      - 9000
+    networks:
+      - local-net
+
+  fpm73:
+    image: php:fpm_73
+    volumes:
+      - "./var:/var/www/"
+    expose:
+      - 9000
+    networks:
+      - local-net
+
+networks:
+  local-net:
+    external: true
