@@ -34,9 +34,18 @@ docker-compose up -d
 
 ## file location
 
-File location for read project located in:
+File location project located in:
 
 /var/
+
+if didn't exist:
+
+create folder var on root:
+
+```
+cd to/root
+mkdir var
+```
 
 ## nginx setup
 
