@@ -52,7 +52,7 @@ docker-compose restart
 
 ## example nginx setup
 
-### Bono
+### Bono (USE PHP 73)
 
 ```
   location /sim-5 {       
@@ -79,7 +79,7 @@ docker-compose restart
     }
 ```
 
-### Laravel
+### Laravel (USE PHP 74)
 
 ```
   location /checklist-prambanan {
